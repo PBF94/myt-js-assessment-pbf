@@ -1,4 +1,4 @@
-exports = (typeof window === 'undefined') ? global : window;
+exports = typeof window === "undefined" ? global : window;
 
 /**
  * This file defines an object with some methods. Some of these methods are
@@ -7,29 +7,27 @@ exports = (typeof window === 'undefined') ? global : window;
  */
 
 exports.bestPracticesAnswers = {
-  globals : function() {
-    myObject = {
-      name : 'Jory'
+  globals: function () {
+    var myObject = {
+      name: "Jory",
     };
 
     return myObject;
   },
 
-  functions : function(flag) {
-    if (flag) {
-      function getValue() { return 'a'; }
-    } else {
-      function getValue() { return 'b'; }
-    }
-
-    return getValue();
+  functions: function (flag) {
+    return this.getValue(flag);
   },
 
-  parseInt : function(num) {
-    return parseInt(num);
+  getValue: function (flag) {
+    return flag ? "a" : "b";
   },
 
-  identity : function(val1, val2) {
+  parseInt: function (num) {
+    return parseInt(num, 10);
+  },
 
-  }
+  identity: function (val1, val2) {
+    return val1 === val2;
+  },
 };
